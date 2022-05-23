@@ -1,11 +1,11 @@
-var Startpoint = 10;
-var Startpoint2 = 10; 
-var tradingsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TradingAPI");
-var marketsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MarketDataAPI");
+var StartpointTrading = 10;
+var StartpointMarket = 10; 
+var tradingsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TradingAPI"); // call trading sheet
+var marketsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MarketDataAPI"); // call market sheet
 
 // Get the entered API key
 var api_key = tradingsheet.getRange("E4").getValue() ; 
-// Check if box is thicked or not. If so, endpoint requests go with paper money. Otherwise, requests take the real money. 
+// Check if box is ticked or not. If so, endpoint requests go with paper money. Otherwise, requests take the real money. 
 var paperorlive = tradingsheet.getRange("H4").isChecked() ;
 
 // Call positions endpoint
@@ -63,7 +63,6 @@ function callInstruments(){
   var response = UrlFetchApp.fetch(url, options); 
   var json = response.getContentText(); 
   var data = JSON.parse(json); 
-  Logger.log(data.results)
   return data.results;  
 }
 
@@ -179,9 +178,9 @@ function OrderSubmission() {
 // Clear all data from last positions endpoint call
 function clearPositionsOrders(){
 
- var deletingRows = tradingsheet.getLastRow() - Startpoint + 1;
+ var deletingRows = tradingsheet.getLastRow() - StartpointTrading + 1;
 
- tradingsheet.deleteRows(Startpoint, deletingRows);
+ tradingsheet.deleteRows(StartpointTrading, deletingRows);
  
 }
 
@@ -189,9 +188,9 @@ function clearPositionsOrders(){
 // Clear all data from last instruments endpoint call
 function clearInstruments() {
 
- var deletingRows = marketsheet.getLastRow() - Startpoint2 + 1;
+ var deletingRows = marketsheet.getLastRow() - StartpointMarket + 1;
 
- marketsheet.deleteRows(Startpoint2, deletingRows);
+ marketsheet.deleteRows(StartpointMarket, deletingRows);
 
 }
 
@@ -210,7 +209,7 @@ function updateTrading() {
 
 
    for (var i = 0; i < positions.length; i++) {
-      var index = Startpoint + i;
+      var index = StartpointTrading + i;
       tradingsheet.getRange("A" + index).setValue(positions[i].isin_title).setBackground("white");
       tradingsheet.getRange("B" + index).setValue(positions[i].isin).setBackground("white");
       tradingsheet.getRange("C" + index).setValue(positions[i].buy_price_avg / 10000 + "€").setBackground("white");
@@ -221,7 +220,7 @@ function updateTrading() {
 
 
     for (var i = 0; i < orders.length; i++) {
-      var index = Startpoint + i;
+      var index = StartpointTrading + i;
       var create = orders[i].created_at ;
       var createsplit = create.split("T") ;
       var expire = orders[i].expires_at ;
@@ -260,7 +259,7 @@ function updateMarketData() {
 
 
    for (var i = 0; i < instruments.length; i++) {
-      var index = Startpoint2 + i;
+      var index = StartpointMarket + i;
       var vn = instruments[i].venues ; 
       marketsheet.getRange("A" + index).setValue(instruments[i].isin).setBackground("white");
       marketsheet.getRange("B" + index).setValue(instruments[i].title).setBackground("white");
@@ -276,7 +275,7 @@ function updateMarketData() {
   
 
    for (var i = 0; i < ohlc.length; i++) {
-      var index = Startpoint2 + i;
+      var index = StartpointMarket + i;
       var time = ohlc[i].t ;
       var timesplit = time.split("T") ;
       var t = timesplit[1].toString(); 
@@ -287,7 +286,6 @@ function updateMarketData() {
       marketsheet.getRange("K" + index).setValue(ohlc[i].l).setBackground("white");
       marketsheet.getRange("L" + index).setValue(ohlc[i].c).setBackground("white");
       marketsheet.getRange("M" + index).setValue(ohlc[i].v).setBackground("white");
-     // marketsheet.getRange("N" + index).setValue(timesplit[0].toString()).setBackground("white");
 
       if(hdm == "d1"){
         marketsheet.getRange("N" + index).setValue("'" + timesplit[0].toString() + "'").setBackground("white");
