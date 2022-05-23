@@ -11,11 +11,13 @@ It's not complicated to use the repo for the Spreadsheet. All you have to do is 
 You can use the Apps Script-Tool through the following: Open Spreadsheet file -> Go to "Extensions" -> Click "Apps Script"
 Now paste the code and save it. That is it. 
 
-## API & software usage 
+## API usage 
 
 This project uses the lemon.markets API. 
 
 lemon.markets is a brokerage API by developers for developers that allows you to build your own experience at the stock market. We will use the Market Data API and Trading API to retrieve the ISIN (unique identifier) that belongs to a particular financial instrument and to place trades. If you do not have a lemon.markets account yet, you can sign up [here](https://login.lemon.markets/u/login/identifier?state=hKFo2SA4RmVaaUpPWmtxcXdrb3NEeUdWVWpYY0VuejJtRU1Sd6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGFwV3RZM0RWblo4OHRmek9mSGNPQ09iSDh0Ylp1eUpmo2NpZNkgY0swQlhzc1V2U3lybUtVSVo3YTJLdmVvZ1F6eVNWSWo). 
+
+## usage of Google Sheets
 
 In addition to that, we're using [Google Sheets](https://www.google.com/sheets/about/) as a tool. Sheets is a free program to create & edit spreadsheets online. If you're familiar with Microsoft Excel, you will not have issues with using Sheets. The huge advantage of Sheets is that collaborative work through real-time sharing via cloud-hosting is easier than ever before. 
 
