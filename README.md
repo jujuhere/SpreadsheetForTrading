@@ -33,7 +33,7 @@ ORDERS_URL= "https://paper-trading.lemon.markets/v1/orders/" or "https://data.le
 ```
 
 Configure your environment variables on the Spreadsheet. You just need to insert your API key into the Spreadsheet by copying it from the dashboard. Please provide your unique API KEY. You can decide with one tick/click whether you'd like to use the paper money or the real money environment on the sheet. (This time, you don't need to add environment variables in the code.) :) 
-Also, if you order stocks through your spreadsheet, please consider the following variables from the POST request while inserting the data into Sheets:
+Also, if you order stocks through your spreadsheet, please consider the following variables from the POST request while inserting the data into Sheets (TradingAPI tab):
 
 ```javascript
     "isin": "isin of the stock you'd like to trade",
@@ -41,6 +41,16 @@ Also, if you order stocks through your spreadsheet, please consider the followin
     "side": "buy" or "sell"? ,
     "quantity": "how many stocks you'd like to trade (give a number)",
     "venue": mostly "XMUN"
+```
+
+In the MarketDataAPI tab, there are the following areas where you can insert data while working with the /instruments & /ohlc endpoints:
+
+```javascript
+    SEARCH_STOCK = "Find instruments by typing the name of the stock, e.g. Coinbase"
+    SEARCH_ISIN = "Find ohlc data from a specific stock by typing the ISIN of the stock, e.g. LU1778762911 for Spotify"
+    h1/m1/d1 = "Would you like to receive data in a hourly, minutely or daily rhythm?" 
+    date (from) = "Type the date of when the daily track of the data should begin"
+    date (to) = "Type the date of when the daily track of history data should stop. You don't need to fill this section if you're using h1 or m1 for time tracking" 
 ```
 
 ## Interested in contributing?
