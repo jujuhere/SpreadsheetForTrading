@@ -48,9 +48,9 @@ In the MarketDataAPI tab, there are the following areas where you can insert dat
 ```javascript
     SEARCH_STOCK = "Find instruments by typing the name of the stock, e.g. Coinbase"
     SEARCH_ISIN = "Find ohlc data from a specific stock by typing the ISIN of the stock, e.g. LU1778762911 for Spotify"
-    h1_m1_d1 = "Would you like to receive data in a hourly, minutely or daily rhythm?" 
-    date_from = "Type the date of when the daily track of the data should begin"
-    date_to = "Type the date of when the daily track of history data should stop. You don't need to fill this section if you're using h1 or m1 for time tracking" 
+    H1_M1_D1 = "Would you like to receive data in a hourly, minutely or daily rhythm?" 
+    DATE_FROM = "Type the date of when the daily track of the data should begin"
+    DATE_TO = "Type the date of when the daily track of history data should stop. You don't need to fill this section if you're using h1 or m1 for time tracking" 
 ```
 
 ## Interested in contributing?
