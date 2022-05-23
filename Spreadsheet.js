@@ -3,7 +3,7 @@ var StartpointMarket = 10;
 var tradingsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TradingAPI"); // call trading sheet
 var marketsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MarketDataAPI"); // call market sheet
 
-// Get the entered API key
+// Get the typed API key
 var api_key = tradingsheet.getRange("E4").getValue() ; 
 // Check if box is ticked or not. If so, endpoint requests go with paper money. Otherwise, requests take the real money. 
 var paperorlive = tradingsheet.getRange("H4").isChecked() ;
