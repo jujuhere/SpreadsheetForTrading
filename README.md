@@ -35,7 +35,7 @@ Also, if you order stocks through your spreadsheet, please consider the followin
 
 ```javascript
     "body:"
-    "isin": the stock's isin you would like to trade,
+    : the stock's isin you would like to trade,
     "expires_at": expiration date of your trade "(YYYY-MM-DD)",
     "side": "buy" or "sell"? ,
     "quantity": how many stocks you would like to trade "(add a number)",
