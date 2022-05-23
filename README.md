@@ -34,8 +34,7 @@ Configure your environment variables on the spreadsheet. You just need to insert
 Also, if you order stocks through your spreadsheet, please consider the following variables from the POST request while inserting the data into Sheets (TradingAPI tab):
 
 ```javascript
-    "body:"
-    : the stock's isin you would like to trade,
+    "isin": the stock's isin you would like to trade,
     "expires_at": expiration date of your trade "(YYYY-MM-DD)",
     "side": "buy" or "sell"? ,
     "quantity": how many stocks you would like to trade "(add a number)",
