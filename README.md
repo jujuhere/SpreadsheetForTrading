@@ -1,4 +1,6 @@
 # SheetsForTrading
+Code Snippet which is part of the Google Sheets implementation to execute trading on the stock market with Google's spreadsheet including the lemon.markets API.
+
 
 ## Introduction
 This is a public lemon.markets repository that gives you an app script code that you can use for the Spreadsheet for the API. To get a general understanding of the API, please refer to our [documentation](https://docs.lemon.markets). The code langauge we're using here is [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript). The Spreadsheet-For-Trading template & a walkthrough of this template & the script can be found in our blogpost. 
