@@ -17,23 +17,23 @@ lemon.markets is a brokerage API by developers for developers that allows you to
 
 We are using the following endpoints URL of the lemon.markets API: 
 ```javascript
-TRADING_URL= https://paper-trading.lemon.markets/v1/
-MARKET_URL= https://data.lemon.markets/v1/
-POSITIONS_URL= https://paper-trading.lemon.markets/v1/positions/ or https://data.lemon.markets/v1/positions/
-ACCOUNT_URL= https://paper-trading.lemon.markets/v1/account/ or https://data.lemon.markets/v1/account/
-INSTRUMENTS_URL= https://paper-trading.lemon.markets/v1/instruments/ or https://data.lemon.markets/v1/instruments/
-OHLC_URL= https://paper-trading.lemon.markets/v1/ohlc/ or https://data.lemon.markets/v1/ohlc/
-ORDERS_URL= https://paper-trading.lemon.markets/v1/orders/ or https://data.lemon.markets/v1/orders/
+TRADING_URL= "https://paper-trading.lemon.markets/v1/"
+MARKET_URL= "https://data.lemon.markets/v1/"
+POSITIONS_URL= "https://paper-trading.lemon.markets/v1/positions/" or "https://data.lemon.markets/v1/positions/"
+ACCOUNT_URL= "https://paper-trading.lemon.markets/v1/account/" or "https://data.lemon.markets/v1/account/"
+INSTRUMENTS_URL= "https://paper-trading.lemon.markets/v1/instruments/" or "https://data.lemon.markets/v1/instruments/"
+OHLC_URL= "https://paper-trading.lemon.markets/v1/ohlc/" or "https://data.lemon.markets/v1/ohlc/"
+ORDERS_URL= "https://paper-trading.lemon.markets/v1/orders/" or "https://data.lemon.markets/v1/orders/"
 ```
 
 Configure your environment variables on the Spreadsheet. You just need to insert your API key from the into the Spreadsheet by copying it from the dashboard. Please provide your unique API KEY. You can decide with one click whether you'd like to use the paper money or the real money environment. (This time, you don't need to add environment variables in the code.) :) 
 Also, if you order stocks through your spreadsheet, please consider the following variables from the POST request:
 
 ```javascript
-    "isin": isin of the stock you'd like to trade,
-    "expires_at": expiration date of your trade (MM-DD-YY),
+    "isin": "isin of the stock you'd like to trade",
+    "expires_at": "expiration date of your trade (MM-DD-YY)",
     "side": "buy" or "sell"? ,
-    "quantity": how many stocks you'd like to trade (give a number),
+    "quantity": "how many stocks you'd like to trade (give a number)",
     "venue": mostly "XMUN"
 ```
 
