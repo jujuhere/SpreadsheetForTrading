@@ -1,14 +1,14 @@
-var StartpointTrading = 10;
-var StartpointMarket = 10; 
-var tradingsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TradingAPI"); // call trading sheet
-var marketsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MarketDataAPI"); // call market sheet
+var StartpointTrading = 10; //setting starting row for TradingAPI sheet
+var StartpointMarket = 10; //setting starting row for MarketDataAPI sheet
+var tradingsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TradingAPI"); // calling trading sheet
+var marketsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("MarketDataAPI"); // calling market sheet
 
-// Get the typed API key
+// Getting the typed API key
 var api_key = tradingsheet.getRange("E4").getValue() ; 
-// Check if box is ticked or not. If so, endpoint requests go with paper money. Otherwise, requests take the real money. 
+// Checking if box is ticked or not. If so, endpoint requests go with paper money. Otherwise, requests take the real money. 
 var paperorlive = tradingsheet.getRange("H4").isChecked() ;
 
-// Call positions endpoint
+// Calling positions endpoint
 function callPositions(){
   if(paperorlive == true){
     var url = "https://paper-trading.lemon.markets/v1/positions/";
@@ -29,7 +29,7 @@ function callPositions(){
   return data.results
 }
 
-// Call account endpoint
+// Calling account endpoint
 function callAccount(){
   if(paperorlive == true){
     var url = "https://paper-trading.lemon.markets/v1/account/";
@@ -49,7 +49,7 @@ function callAccount(){
   return data.results; 
 }
 
-// Call instruments endpoint
+// Calling instruments endpoint
 function callInstruments(){
   var isin = marketsheet.getRange("C4").getValue() ;
   var url = "https://data.lemon.markets/v1/instruments/?search=" + isin
@@ -66,7 +66,7 @@ function callInstruments(){
   return data.results;  
 }
 
-// Call OHLC endpoint 
+// Calling OHLC endpoint (throws new error when invalid input data is given)
 function callOHLC(){
   try{
   var isin = marketsheet.getRange("F4").getValue() ;
@@ -102,7 +102,7 @@ function callOHLC(){
   }
 }
 
-// Call orders endpoint 
+// Calling orders endpoint 
 function callOrders(){
   if(paperorlive == true){
     var url = "https://paper-trading.lemon.markets/v1/orders/";
@@ -154,7 +154,7 @@ function makeOrder(isin, expires_at, side, quantity, venue){
 
 
 
-// Receiving input data from the sheet and set them into the makeOrder() function
+// Receiving input data from the sheet and setting them into the makeOrder() function
 function OrderSubmission() {
   tradingsheet.getRange("L2").setValue("Sending data...")
   
@@ -175,7 +175,7 @@ function OrderSubmission() {
 }
 
 
-// Clear all data from last positions endpoint call
+// Clearing all data from last positions endpoint call
 function clearPositionsOrders(){
 
  var deletingRows = tradingsheet.getLastRow() - StartpointTrading + 1;
@@ -185,7 +185,7 @@ function clearPositionsOrders(){
 }
 
 
-// Clear all data from last instruments endpoint call
+// Clearing all data from last instruments endpoint call
 function clearInstruments() {
 
  var deletingRows = marketsheet.getLastRow() - StartpointMarket + 1;
@@ -194,7 +194,7 @@ function clearInstruments() {
 
 }
 
-// If button "UPDATE" is pressed on Sheets, updateTrading() will feed the sheet with new data
+// If button "UPDATE" is cliked on Sheets, updateTrading() will feed the sheet with new data
 function updateTrading() {
   var positions = callPositions();
   var account = callAccount();
@@ -245,7 +245,7 @@ function updateTrading() {
   
 }
 
-// If button "UPDATE" is pressed on Sheets, updateMarketData() will feed the sheet with new data
+// If button "UPDATE" is clicked on Sheets, updateMarketData() will feed the sheet with new data
 function updateMarketData() {
   var instruments = callInstruments();  
   var ohlc = callOHLC();
