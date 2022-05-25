@@ -1,5 +1,5 @@
 # SheetsForTrading
-Code Snippet which is part of the Google Sheets implementation to organize your stock data with Google Sheets including the lemon.markets API.
+Code Snippet which is part of the Google Sheets implementation to organize your stock data with a spreadsheet including the lemon.markets API.
 
 ## Introduction
 This is a public repository that gives you an apps script code that you can use for the spreadsheet to call the endpoints of the API. To get a general understanding of the API, please refer to our [documentation](https://docs.lemon.markets). The code langauge we're using here is [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript). The walkthrough of the Spreadsheet-For-Trading template, the template itself & the script can be found in our blogpost. 
